@@ -1,0 +1,17 @@
+<div class="sub-header">
+  <h2>Hey, this is Users Index</h2>
+</div>
+
+<div class="item link">
+  <a href="<%= new_user_url %>">Add New User</a>
+</div>
+
+<ul class="list">
+  <% @users.each do |user| %>
+    <li>
+      <a href="<%= user_url(user) %>">
+        <%= render 'user', user: user %>
+      </a>
+    </li>
+  <% end %>
+</ul>

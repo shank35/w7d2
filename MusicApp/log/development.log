@@ -1,0 +1,558 @@
+  [1m[35m (160.2ms)[0m  [1m[35mCREATE DATABASE "MusicApp_development" ENCODING = 'unicode'[0m
+  [1m[35m (113.1ms)[0m  [1m[35mCREATE DATABASE "MusicApp_test" ENCODING = 'unicode'[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1555902080779534005)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20230221184850)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_session_token" ON "users" ("session_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230221184850"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-02-21 18:53:08.973990"], ["updated_at", "2023-02-21 18:53:08.973990"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1555902080779534005)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-02-21 14:41:35 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/shankim/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/shankim/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.8ms | Allocations: 526)
+Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 2810)
+
+
+Started GET "/" for ::1 at 2023-02-21 14:41:40 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/shankim/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/shankim/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 278)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 917)
+
+
+Started GET "/new" for ::1 at 2023-02-21 14:41:41 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/new"):
+  
+Started GET "/" for ::1 at 2023-02-21 14:41:50 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/shankim/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/shankim/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 20)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 254)
+
+
+Started GET "/show" for ::1 at 2023-02-21 14:41:56 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/show"):
+  
+Started GET "/" for ::1 at 2023-02-21 14:42:00 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/shankim/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/shankim/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 193)
+
+
+Started GET "/users" for ::1 at 2023-02-21 14:42:01 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users/new" for ::1 at 2023-02-21 14:42:05 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 3200)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `new'
+
+Started POST "/__better_errors/0aebbfa78ba94f20/variables" for ::1 at 2023-02-21 14:42:05 -0500
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users/new" for ::1 at 2023-02-21 14:42:47 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1237)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `new'
+
+Started POST "/__better_errors/00615f450442d6dd/variables" for ::1 at 2023-02-21 14:42:47 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/usersnew" for ::1 at 2023-02-21 14:42:51 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/usersnew"):
+  
+Started GET "/user" for ::1 at 2023-02-21 14:42:57 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/user"):
+  
+Started GET "/users" for ::1 at 2023-02-21 14:43:00 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users/new" for ::1 at 2023-02-21 14:44:00 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1194)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `new'
+
+Started POST "/__better_errors/d667c6c3fa3f8d1e/variables" for ::1 at 2023-02-21 14:44:00 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users/new" for ::1 at 2023-02-21 14:44:18 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1239)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `new'
+
+Started POST "/__better_errors/4664976790d08437/variables" for ::1 at 2023-02-21 14:44:18 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users/new" for ::1 at 2023-02-21 14:44:19 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 961)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `new'
+
+Started POST "/__better_errors/3d787de9b0befe5b/variables" for ::1 at 2023-02-21 14:44:19 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users/new" for ::1 at 2023-02-21 14:44:20 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1235)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `new'
+
+Started POST "/__better_errors/73f0f64bd0de834a/variables" for ::1 at 2023-02-21 14:44:20 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users/new" for ::1 at 2023-02-21 14:44:20 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 962)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `new'
+
+Started POST "/__better_errors/48321d3ec1c771d7/variables" for ::1 at 2023-02-21 14:44:21 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users/new" for ::1 at 2023-02-21 14:44:21 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 960)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `new'
+
+Started POST "/__better_errors/ac116ad63b761118/variables" for ::1 at 2023-02-21 14:44:21 -0500
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users/new" for ::1 at 2023-02-21 14:44:21 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 960)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `new'
+
+Started POST "/__better_errors/f291719a90efdb1c/variables" for ::1 at 2023-02-21 14:44:21 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users/new" for ::1 at 2023-02-21 14:44:21 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 960)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `new'
+
+Started POST "/__better_errors/ca7fcc0c140bc5cf/variables" for ::1 at 2023-02-21 14:44:21 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users/new" for ::1 at 2023-02-21 14:44:22 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 960)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `new'
+
+Started POST "/__better_errors/a895f1f6a7391ab8/variables" for ::1 at 2023-02-21 14:44:22 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users/new" for ::1 at 2023-02-21 14:44:22 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 960)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `new'
+
+Started POST "/__better_errors/c2f23b3cf4001c53/variables" for ::1 at 2023-02-21 14:44:22 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users/new" for ::1 at 2023-02-21 14:45:12 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2239)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:10:in `new'
+
+Started POST "/__better_errors/3fa313bb3ecf5e55/variables" for ::1 at 2023-02-21 14:45:12 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users/new" for ::1 at 2023-02-21 14:45:13 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 960)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:10:in `new'
+
+Started POST "/__better_errors/78bcaa69e06e34c4/variables" for ::1 at 2023-02-21 14:45:13 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users/index" for ::1 at 2023-02-21 14:45:20 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+Completed 404 Not Found in 12ms (ActiveRecord: 5.5ms | Allocations: 3871)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=index:
+  app/controllers/users_controller.rb:14:in `show'
+
+Started POST "/__better_errors/219bf0554f455189/variables" for ::1 at 2023-02-21 14:45:20 -0500
+Started GET "/users" for ::1 at 2023-02-21 14:45:41 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 999)
+
+
+
+ActionView::MissingTemplate - Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `index'
+
+Started POST "/__better_errors/cd88a4a08fa1f586/variables" for ::1 at 2023-02-21 14:45:41 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-02-21 14:46:33 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1235)
+
+
+
+ActionView::MissingTemplate - Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `index'
+
+Started POST "/__better_errors/a1d20a655f4f5a68/variables" for ::1 at 2023-02-21 14:46:33 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-02-21 14:46:33 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 961)
+
+
+
+ActionView::MissingTemplate - Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `index'
+
+Started POST "/__better_errors/dd280c2d23913da1/variables" for ::1 at 2023-02-21 14:46:33 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-02-21 14:46:34 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 960)
+
+
+
+ActionView::MissingTemplate - Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `index'
+
+Started POST "/__better_errors/b287cfa8bb928f92/variables" for ::1 at 2023-02-21 14:46:34 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-02-21 14:46:34 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 960)
+
+
+
+ActionView::MissingTemplate - Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `index'
+
+Started POST "/__better_errors/7499d747ee749ad5/variables" for ::1 at 2023-02-21 14:46:34 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-02-21 14:46:34 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 960)
+
+
+
+ActionView::MissingTemplate - Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `index'
+
+Started POST "/__better_errors/922205aae38e2388/variables" for ::1 at 2023-02-21 14:46:35 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-02-21 14:46:35 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 960)
+
+
+
+ActionView::MissingTemplate - Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `index'
+
+Started POST "/__better_errors/1f3d873393bb45a2/variables" for ::1 at 2023-02-21 14:46:35 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-02-21 14:46:35 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 960)
+
+
+
+ActionView::MissingTemplate - Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `index'
+
+Started POST "/__better_errors/fc7ea6bf164ad09d/variables" for ::1 at 2023-02-21 14:46:35 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-02-21 14:46:36 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 960)
+
+
+
+ActionView::MissingTemplate - Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `index'
+
+Started POST "/__better_errors/e246c2052db1ae32/variables" for ::1 at 2023-02-21 14:46:36 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-02-21 14:46:36 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 960)
+
+
+
+ActionView::MissingTemplate - Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `index'
+
+Started POST "/__better_errors/9dacc21449f5254c/variables" for ::1 at 2023-02-21 14:46:36 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-02-21 14:46:36 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 960)
+
+
+
+ActionView::MissingTemplate - Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  layouts/application:
+  app/controllers/users_controller.rb:5:in `index'
+
+Started POST "/__better_errors/84264fd68e69c14a/variables" for ::1 at 2023-02-21 14:46:36 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-02-21 14:48:08 -0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 974)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 5986)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.4ms | Allocations: 6690)
+
+
+
+NoMethodError - undefined method `user_signed_in?' for #<ActionView::Base:0x00000000005f78>:
+  app/views/layouts/application.html.erb:6
+  app/controllers/users_controller.rb:5:in `index'
+
+Started POST "/__better_errors/0f32eb292f265346/variables" for ::1 at 2023-02-21 14:48:08 -0500
+Started GET "/users" for ::1 at 2023-02-21 14:48:19 -0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 903)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 7254)
+Completed 200 OK in 28ms (Views: 27.2ms | ActiveRecord: 0.4ms | Allocations: 7990)
+
+
+Started GET "/users/new" for ::1 at 2023-02-21 14:48:26 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1018)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+Searched in:
+  * "/Users/shankim/Desktop/Bootcamp/Week7/w7d2/MusicApp/app/views"
+Did you mean?  users/index
+               layouts/application:
+  app/controllers/users_controller.rb:10:in `new'
+
+Started POST "/__better_errors/f4b5dc54594eae4f/variables" for ::1 at 2023-02-21 14:48:27 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-02-21 14:49:07 -0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 598)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 1927)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.4ms | Allocations: 2199)
+
+
+Started GET "/users" for ::1 at 2023-02-21 14:50:47 -0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 581)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 1696)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.4ms | Allocations: 1911)
+
+
+Started GET "/users" for ::1 at 2023-02-21 14:54:27 -0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1853)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 2826)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.2ms | Allocations: 3520)
+
+
+Started GET "/users" for ::1 at 2023-02-21 14:54:46 -0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1470)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 2197)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 2922)
+
+
+Started GET "/users" for ::1 at 2023-02-21 14:55:03 -0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 901)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2415)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.2ms | Allocations: 3131)
+
+
